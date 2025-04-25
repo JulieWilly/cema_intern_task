@@ -3,9 +3,18 @@ import { NavLink } from 'react-router-dom';
 const SideBar = () => {
   return (
     <div className="w-1/4 flex">
-      <div className=" w-full bg-secondary h-screen p-4">
+      <div className=" w-full bg-secondary p-4">
         <nav>
-          <ul>
+          <ul className=" flex flex-col gap-4">
+            <li>
+              {" "}
+              <NavLink
+                to={"/dashboard"}
+                className="text-white text-lg font-semibold mb-4"
+              >
+            Dashboard
+              </NavLink>
+            </li>
             <li>
               {" "}
               <NavLink
@@ -27,7 +36,6 @@ const SideBar = () => {
           </ul>
         </nav>
       </div>
-
     </div>
   );
 }
