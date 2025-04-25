@@ -1,6 +1,4 @@
 import connection from "../../database";
-
-import { Router } from "express";
 import { Router } from "express";
 const router = Router();    
 
@@ -20,11 +18,13 @@ router.post("/register-client", async (req, res) => {
                     if (result.affectedRows === 0) {
                         return res.status(400).json({ message: "Failed to register patient" });                                 
                     }
-
                     return res.status(200).json({ message: "Patient registered successfully" });
-        }
+        })
         }catch(err){
         return res.status(500).json({ message: "Internal server error" });
       }  
     
  });
+
+
+ export default router;
