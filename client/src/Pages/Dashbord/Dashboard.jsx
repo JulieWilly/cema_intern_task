@@ -42,8 +42,11 @@ const Dashboard = () => {
         },
       }
     );
-    // const patients = searchPatient.data.data;
-    console.log('data', searchPatient);
+
+    if (searchPatient.status === 200) {
+      const patients = searchPatient.data.data;
+      setPatients(patients);
+    }
   }
   const formik = useFormik({
     initialValues:{
