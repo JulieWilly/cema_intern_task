@@ -33,19 +33,20 @@ const [details, setDetails] = useState([]);
     const updateFields = () => {
       if (details) {
         formik.setValues({
-          full_name: details.full_name,
-          email_address: details.email_address,
-          phone_number: details.phone_number,
-          gender: details.gender,
-          age: details.age,
-          address: details.address,
-          national_id: details.national_id,
-          next_of_kin_contact: details.next_of_kin_contact,
-          medical_history: details.medical_history,
-          current_medication: details.current_medication,
-          marital_status: details.marital_status,
-          occupation: details.occupation,
-          admission_date: details.admission_date,
+          full_name: details?.full_name,
+          email_address: details?.email_address,
+          phone_number: details?.phone_number,
+          gender: details?.gender,
+          age: details?.age,
+          address: details?.address,
+          national_id: details?.national_id,
+          next_of_kin_contact: details?.next_of_kin_contact,
+          medical_history: details?.medical_history,
+          current_medication: details?.current_medication,
+          marital_status: details?.marital_status,
+          occupation: details?.occupation,
+          programs_id: details?.program_names,
+          admission_date: details?.admission_date,
         });
       }
     };
@@ -342,10 +343,10 @@ const [details, setDetails] = useState([]);
             >
               Enroll to program ( Hold Ctrl Cmd to select multiple.)
             </label>
-            <select
+            <textarea
               id="programs_id"
               type="text"
-              placeholder="Gender"
+              placeholder="Programs"
               name="programs_id"
               value={formik.values.programs_id}
               onChange={formik.handleChange}
@@ -353,12 +354,9 @@ const [details, setDetails] = useState([]);
               multiple
               className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             >
-              {details.programs_id?.map((program, key) => (
-                <div key={key}>
-                  <option value={program.id}>{program}</option>
-                </div>
-              ))}
-            </select>
+
+            </textarea>
+   
           </div>
         </div>
 
