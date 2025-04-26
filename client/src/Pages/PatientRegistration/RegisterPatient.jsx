@@ -1,4 +1,30 @@
+import { useFormik } from "formik";
+
 const RegisterPatient = () => {
+  const handleSubmit = (values) => {
+    // post data to the server
+    
+  };
+
+  const formik = useFormik({
+    initialValues: {
+      full_name: "",
+      email_address: "",
+      phone_number: "",
+      gender: "",
+      age: "",
+      address: "",
+      national_id: "",
+      next_of_kin_contact: "",
+      medical_history: "",
+      current_medication: "",
+      marital_status: "",
+      occupation: "",
+      admission_date: "",
+    },
+    onSubmit: handleSubmit,
+  });
+
   return (
     <div>
       <h1 className="text-3xl font-bold">Register Patients</h1>
@@ -6,7 +32,8 @@ const RegisterPatient = () => {
 
       <form
         action=""
-        className="mt-4 w-11/12  mx-auto bg-white p-6 rounded-lg shadow-xl bg-secondary "
+        className="mt-4 w-11/12  mx-auto bg-white p-6 rounded-lg shadow-xl"
+        onSubmit={formik.handleSubmit}
       >
         <h1 className="text-center text-xl font-bold tracking-wide mb-4">
           Enter patients details
@@ -23,6 +50,10 @@ const RegisterPatient = () => {
               id="fullName"
               type="text"
               placeholder="Enter full name"
+              name="full_name"
+              value={formik.full_name}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
           </div>
@@ -37,6 +68,10 @@ const RegisterPatient = () => {
               id="fullName"
               type="email"
               placeholder="Email address"
+              name="email_address"
+              value={formik.email_address}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
           </div>
@@ -51,6 +86,10 @@ const RegisterPatient = () => {
               id="phoneNumber"
               type="number"
               placeholder="Phone Number"
+              name="phone_number"
+              value={formik.phone_number}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
           </div>
@@ -65,6 +104,10 @@ const RegisterPatient = () => {
               id="gender"
               type="text"
               placeholder="Gender"
+              name="gender"
+              value={formik.gender}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             >
               <option value=""></option>
@@ -83,6 +126,10 @@ const RegisterPatient = () => {
               id="age"
               type="number"
               placeholder="Age"
+              name="age"
+              value={formik.age}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
           </div>
@@ -96,6 +143,10 @@ const RegisterPatient = () => {
             <input
               id="address"
               type="text"
+              name="address"
+              value={formik.address}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
               placeholder="Address"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
@@ -111,6 +162,10 @@ const RegisterPatient = () => {
               id="nationalId"
               type="text"
               placeholder="Enter National ID or Patient ID"
+              name="national_id"
+              value={formik.national_id}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
           </div>
@@ -126,6 +181,10 @@ const RegisterPatient = () => {
               id="emergencyContact"
               type="text"
               placeholder="Enter emergency contact"
+              name="next_of_kin_contact"
+              value={formik.next_of_kin_contact}
+              onBlur={formik.handleBlur}
+              onChange={formik.handleChange}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
           </div>
@@ -140,6 +199,10 @@ const RegisterPatient = () => {
             <textarea
               id="medicalHistory"
               placeholder="Enter medical history"
+              name="medical_history"
+              value={formik.medical_history}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               rows="4"
             ></textarea>
@@ -156,6 +219,10 @@ const RegisterPatient = () => {
               id="medications"
               type="text"
               placeholder="Enter current medications"
+              name="current_medication"
+              value={formik.current_medication}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
           </div>
@@ -171,6 +238,10 @@ const RegisterPatient = () => {
               id="maritalStatus"
               type="text"
               placeholder="Enter marital status"
+              name="marital_status"
+              value={formik.marital_status}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
           </div>
@@ -186,6 +257,10 @@ const RegisterPatient = () => {
               id="occupation"
               type="text"
               placeholder="Enter occupation"
+              name="occupation"
+              value={formik.occupation}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
           </div>
@@ -200,6 +275,10 @@ const RegisterPatient = () => {
             <input
               id="admissionDate"
               type="date"
+              name="admission_date"
+              value={formik.admission_date}
+              onBlur={formik.handleBlur}
+              onChange={formik.handleChange}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
           </div>
