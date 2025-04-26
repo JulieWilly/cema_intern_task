@@ -1,4 +1,20 @@
 # cema_intern_task
+
+# Application installatioin procedure
+ - Clone the project in your local folder.
+ - Open the project with an editor that suites you.
+ - Open terminal and install node packages.
+ - run the application
+ 
+        ~ To run the application, move to client folder and run the command bash npm run dev 
+        This will run the front-end of the application.
+        ~ To run the server, open another  terminal and move to the server folder, run the cammand npm run start. 
+        This will run the server
+
+- Having successfully done this, you can carry out multiple CRUD operations in the application.
+
+
+
 # Software Engineering Intern Task
 ## Write a short program that simulates a basic health information system for managing clients
 and health programs/services.
