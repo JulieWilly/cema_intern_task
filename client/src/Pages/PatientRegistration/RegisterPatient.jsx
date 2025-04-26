@@ -1,9 +1,42 @@
 import { useFormik } from "formik";
+import axios from 'axios'
+import {VITE_API_URL_BASE} from '../../config/config.js'
 
 const RegisterPatient = () => {
-  const handleSubmit = (values) => {
+  const handleSubmit =async (values) => {
     // post data to the server
-    
+    try {
+      const registerPatient = await axios.post(
+        `${VITE_API_URL_BASE}/patient/register-client`,{
+          full_name: values.full_name,
+          email_address: values.email_address,
+          phone_number: values.phone_number,  
+          age: values.age,
+          gender: values.gender,
+          address: values.address,
+          national_id: values.national_id,
+          next_of_kin_contact: values.next_of_kin_contact,
+          medical_history: values.medical_history,
+          current_medication: values.current_medication,
+          marital_status: values.marital_status,  
+          occupation:values.occupation,
+          admission_date: values.admission_date,
+        } // replace with your API endpoint
+      );
+
+      if (registerPatient.status === 200) {
+        console.log("Patient registered successfully:", registerPatient.data);
+        alert("Patient registered successfully");
+      }
+      if (registerPatient.status === 400) {
+        console.log("Failed to register patient:", registerPatient.data);
+        alert("Failed to register patient");
+      }
+      
+    } catch (error) {
+      console.error("Error submitting form:", error); 
+
+    }
   };
 
   const formik = useFormik({
