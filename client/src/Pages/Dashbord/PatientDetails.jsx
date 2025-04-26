@@ -71,6 +71,7 @@ const [details, setDetails] = useState([]);
         marital_status: "",
         occupation: "",
         admission_date: "",
+        program_id:""
       },
     });
 
@@ -333,6 +334,31 @@ const [details, setDetails] = useState([]);
               onChange={formik.handleChange}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
+          </div>
+      <div className="mb-4">
+            <label
+              htmlFor="fullName"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
+              Enroll to program ( Hold Ctrl Cmd to select multiple.)
+            </label>
+            <select
+              id="programs_id"
+              type="text"
+              placeholder="Gender"
+              name="programs_id"
+              value={formik.values.programs_id}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              multiple
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            >
+              {details.programs_id?.map((program, key) => (
+                <div key={key}>
+                  <option value={program.id}>{program}</option>
+                </div>
+              ))}
+            </select>
           </div>
         </div>
 
