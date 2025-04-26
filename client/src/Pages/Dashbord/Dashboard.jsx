@@ -42,8 +42,8 @@ const Dashboard = () => {
         },
       }
     );
-    const patients = searchPatient.data.data;
-    console.log('data', patients);
+    // const patients = searchPatient.data.data;
+    console.log('data', searchPatient);
   }
   const formik = useFormik({
     initialValues:{
